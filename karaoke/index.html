@@ -26,20 +26,22 @@
 
 			var fade         = '<br>[Repeat and fade]';
 
-			function showLyrics(new_lyrics) {
+			function showLyrics(new_lyrics, type) {
 				var lyrics = document.getElementById("lyrics");
 				lyrics.innerHTML = new_lyrics;
+				if (type == 1) lyrics.innerHTML += '<br><img src="bird.jpg", alt="bluebird" />';
+				if (type == 2) lyrics.innerHTML += '<br><img src="knight.jpg", alt="knight" />';
 			}
 
 			var el = document.getElementById("music_video");
 			el.addEventListener("timeupdate", function() {
 				var time = el.currentTime;
-				if (time > 5 && time <= 37) showLyrics(first_stanza);
-				if (time > 37 && time <= 55) showLyrics(chorus);
-				if (time > 55 && time <= 83) showLyrics(third_stanza);
+				if (time > 5 && time <= 37) showLyrics(first_stanza, 1);
+				if (time > 37 && time <= 55) showLyrics(chorus, 0);
+				if (time > 55 && time <= 83) showLyrics(third_stanza, 2);
 				if (time > 83 && time <= 120) showLyrics(chorus);
-				if (time > 120 && time <= 127) showLyrics(instrumental);
-				if (time > 127 && time <= 164) showLyrics(chorus+fade);
+				if (time > 120 && time <= 127) showLyrics(instrumental, 0);
+				if (time > 127 && time <= 164) showLyrics(chorus+fade, 0);
 				if (time > 164) showLyrics('');
 						}, false);
 

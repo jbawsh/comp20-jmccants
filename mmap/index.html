@@ -7,8 +7,30 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWhEq5b6v6LzO6ISJO86ggchzUo3LHHp4">
     </script>
     <script type="text/javascript">
+
+      var myLogin = 'MegGriffin';
+
+      var xhr = new XMLHttpRequest();
+      var url = "http://chickenofthesea.herokuapp.com/sendLocation"
+      var params = "login=myLogin&lat=YOUR_LATITUDE&lng=YOUR_LONGITUDE"
+      xhr.open('POST', url, true);
+
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.setRequestHeader("Content-length", params.length);
+      xhr.setRequestHeader("Connection", "close");
+
+      xhr.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+      };
+
+      xhr.send(params);
+
+
       function initialize() {
  
+
+
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>

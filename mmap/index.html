@@ -95,6 +95,20 @@
 
           chWindow.open(map, chMark);
 
+          /* adds polylines */
+
+          var myLine = [meMark['position'], chMark['position']];
+          var linePath = new google.maps.Polyline({
+            path: myLine,
+            strokeColor: "#0000FF",
+            strokeOpacity: 0.8,
+            strokeWeight: 2
+          });
+
+          linePath.setMap(map);
+
+          /* finds distance between */
+
           Number.prototype.toRad = function() {
             return this * Math.PI / 180;
           }
@@ -116,13 +130,12 @@
 
           distances = [];
           distances.push({ name: chName, distance: d });
-          alert(distances[0]['name']);
+
         }
 
         /* students */
 
         for (i = 0; i < data['students'].length; i++) {
-          //console.log(data['students'][i]['login']);
           var stLat = data['students'][i]['lat'];
           var stLng = data['students'][i]['lng'];
 

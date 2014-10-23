@@ -64,8 +64,24 @@
         var data = JSON.parse(xhr.responseText);
         
         for (i = 0; i < data['students'].length; i++) {
-          console.log(data['students'][i]['login']);
+          //console.log(data['students'][i]['login']);
+          var stLat = data['students'][i]['lat'];
+          var stLng = data['students'][i]['lng'];
+
+          var stMark = new google.maps.Marker({
+            position: { lat: stLat, lng: stLng },
+            icon: 'images/student.jpg'
+          });
+
+          stMark.setMap(map);
+
+          var stWindow = new google.maps.InfoWindow({
+            content:"Login: " + data['students'][i]['login'] + " Latitude: " + stLat + " Longitude: " + stLng + " Timestamp: " + data['students'][i]['created_at']
+          });
+
+          stWindow.open(map, stMark);
         }
+
       };
 
       xhr.send(params);

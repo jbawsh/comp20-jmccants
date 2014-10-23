@@ -17,7 +17,7 @@
 
       var data;
 
-      var distances;
+      var distances = [];
 
       /*-----MAP STUFF-----*/
 
@@ -128,7 +128,6 @@
           var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
           var d = R * c;
 
-          distances = [];
           distances.push({ name: chName, distance: d });
 
         }
@@ -153,6 +152,14 @@
           stWindow.open(map, stMark);
         }
 
+        /* sets up distance table */
+
+        var distanceTable = document.getElementById("distance-table");
+
+        for (i = 0; i < distances.length; i++) {
+          distanceTable.innerHTML += distances[i]['name'] + ': ' + distances[i]['distance'] + 'km</br>';
+        }
+
       };
 
       xhr.send(params);
@@ -161,5 +168,6 @@
   </head>
   <body>
       <div id="map-canvas"></div>
+      <div id="distance-table"></div>
   </body>
 </html>

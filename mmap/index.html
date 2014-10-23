@@ -59,16 +59,17 @@
       xhr.open('POST', url, true);
 
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      //xhr.setRequestHeader("Content-length", params.length);
-      //xhr.setRequestHeader("Connection", "close");
 
       xhr.onload = function () {
-        data = JSON.parse(xhr.responseText);
+        var data = JSON.parse(xhr.responseText);
+        
+        for (i = 0; i < data['students'].length; i++) {
+          console.log(data['students'][i]['login']);
+        }
       };
 
       xhr.send(params);
 
-      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>

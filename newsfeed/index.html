@@ -6,13 +6,18 @@
 	<title>My News Feed</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
+
+		var storedNews = localStorage.getItem("feed");
+
 		$(document).ready(function(){
+			$("#news").html(storedNews);
     		$("#msg").keydown(function(e) {
       			var key = e.which;
-      			console.log(key);
       			if (key == 13) {
-        			console.log("pressed enter key");
-        			console.log($("#msg").val());
+        			//console.log("pressed enter key");
+        			//console.log($("#msg").val());
+        			var timeStamp = Date.now();
+        			$("#news").prepend(timeStamp + ' - ' + $("#msg").val() + '<br>');
       			};
     		});
   		});
@@ -22,6 +27,6 @@
 <body>
 	<h1>My News Feed</h1>
 	<h3>My news update: <input type="text" id="msg" name="msg" size="30" /></h3>
-	<div id="news">News...</div>
+	<div id="news"></div>
 </body>
 </html>

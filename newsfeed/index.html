@@ -14,10 +14,9 @@
     		$("#msg").keydown(function(e) {
       			var key = e.which;
       			if (key == 13) {
-        			//console.log("pressed enter key");
-        			//console.log($("#msg").val());
         			var timeStamp = Date.now();
         			$("#news").prepend(timeStamp + ' - ' + $("#msg").val() + '<br>');
+        			localStorage.setItem("feed", String($("#news").html()));
       			};
     		});
   		});

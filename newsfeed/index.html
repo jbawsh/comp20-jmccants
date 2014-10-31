@@ -4,9 +4,18 @@
 
 <head>
 	<title>My News Feed</title>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
-	  // Most of your work will be done here...
+		$(document).ready(function(){
+    		$("#msg").keydown(function(e) {
+      			var key = e.which;
+      			console.log(key);
+      			if (key == 13) {
+        			console.log("pressed enter key");
+        			console.log($("#msg").val());
+      			};
+    		});
+  		});
 	</script>
 </head>
 

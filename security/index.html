@@ -12,12 +12,19 @@
 
 		<h2>Introduction</h2> 
 
+			<p>The purpose of this assessment is to test the security of a Marauder's Map type application developed by Anzu Hakone for Comp 20 assignment 3. There is currently a large vulnerablity in the application which makes it pretty much useless for anything important.</p>
+
 		<h2>Methodology</h2>
+
+			<p></p>
 
 		<h2>Abstract of Findings</h2>
 
 		<h2>Issues Found</h2>
+
 			<h4>1. XSS</h4>
+
+				<p>Affects '/' API</p>
 
 				<p>This is attack is quite dangerous because it can lead to invalid data for third party users as well as allow unauthorized people to manipulate the product.</p>
 
@@ -27,10 +34,9 @@
 
 				<p>This can be resolved by escaping user input before storing it so that potentially dangerous characters can be escaped to their HTML components. This way they will still be displayed correctly when accessed but not mistaken for javascript or something else nasty.</p>
 
-			<h4>2. Bad JSON</h4>
-
-			<h4>3. Add extra data</h4>
-
 		<h2>Conclusion</h2>
+
+			<p>I had a lot of trouble finding things wrong with the code. Most of the common things to look for were taken care of and there was a solid amount of checking around how and what was being stored and accessed in the database. Obviously though, cross-site-scripting is a huge vulnerability and something that should be fixed ASAP.</p>
+
 	</body>
 </html>	
